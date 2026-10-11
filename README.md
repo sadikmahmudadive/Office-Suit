@@ -1,4 +1,4 @@
-# Office Notes
+# Office Suit
 
 A small team app for tracking office work: what's coming up, what's in progress, what got done, and notes about it all.
 

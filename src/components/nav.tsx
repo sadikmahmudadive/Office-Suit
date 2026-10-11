@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { logout } from "@/app/actions/auth";
+import { Logo } from "./logo";
 
 const LINKS = [
   { href: "/", label: "Dashboard", short: "Home", icon: "M3 12l9-8 9 8M5 10v10h5v-6h4v6h5V10" },
@@ -23,8 +24,8 @@ export function Nav({ userName }: { userName: string }) {
     <>
       {/* Sidebar on larger screens */}
       <aside className="sticky top-0 hidden h-screen w-56 shrink-0 flex-col border-r border-border bg-surface px-3 py-5 md:flex">
-        <Link href="/" className="mb-6 px-2 text-lg font-semibold tracking-tight">
-          Office Notes
+        <Link href="/" className="mb-6 px-2" aria-label="Office Suit home">
+          <Logo size={30} />
         </Link>
         <nav className="flex flex-col gap-0.5">
           {LINKS.map((link) => (
@@ -57,8 +58,8 @@ export function Nav({ userName }: { userName: string }) {
 
       {/* Top bar and bottom tabs on phones */}
       <header className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-surface px-4 py-3 md:hidden">
-        <Link href="/" className="font-semibold">
-          Office Notes
+        <Link href="/" aria-label="Office Suit home">
+          <Logo size={26} />
         </Link>
         <div className="flex items-center gap-4">
           <Link href="/account" className="max-w-32 truncate text-sm font-medium">
