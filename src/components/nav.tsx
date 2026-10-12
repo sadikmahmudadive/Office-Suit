@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link, { useLinkStatus } from "next/link";
 import { usePathname } from "next/navigation";
 import { logout } from "@/app/actions/auth";
 import { Logo } from "./logo";
@@ -40,6 +40,7 @@ export function Nav({ userName }: { userName: string }) {
             >
               <NavIcon d={link.icon} />
               {link.label}
+              <PendingDot className="ml-auto" />
             </Link>
           ))}
         </nav>
@@ -75,16 +76,28 @@ export function Nav({ userName }: { userName: string }) {
           <Link
             key={link.href}
             href={link.href}
-            className={`flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium ${
+            className={`relative flex flex-col items-center gap-0.5 py-2 text-[11px] font-medium ${
               isActive(pathname, link.href) ? "text-accent" : "text-muted"
             }`}
           >
             <NavIcon d={link.icon} />
             {link.short ?? link.label}
+            <PendingDot className="absolute top-1.5 right-[calc(50%-14px)]" />
           </Link>
         ))}
       </nav>
     </>
+  );
+}
+
+/** A small pulsing dot on a tab while its page loads; hidden unless loading takes over 150ms. */
+function PendingDot({ className = "" }: { className?: string }) {
+  const { pending } = useLinkStatus();
+  if (!pending) return null;
+  return (
+    <span className={`nav-pending ${className}`} role="status" aria-label="Loading">
+      <span className="block size-1.5 animate-pulse rounded-full bg-accent" />
+    </span>
   );
 }
 
