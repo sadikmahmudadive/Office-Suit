@@ -19,8 +19,8 @@ export default async function ResetPasswordPage({ searchParams }: PageProps<"/re
   if (!valid) {
     return (
       <>
-        <h1 className="mb-2 text-lg font-semibold">Link expired</h1>
-        <p className="mb-4 text-sm text-muted">
+        <h1 className="font-brand text-3xl font-extrabold tracking-[-0.03em]">Link expired</h1>
+        <p className="mt-1 mb-6 text-sm text-muted">
           This reset link has expired or was already used. Ask an admin on the Team page for a new one.
         </p>
         <Link href="/login" className="btn w-full">
@@ -32,8 +32,8 @@ export default async function ResetPasswordPage({ searchParams }: PageProps<"/re
 
   return (
     <>
-      <h1 className="mb-1 text-lg font-semibold">Set a new password</h1>
-      <p className="mb-4 text-sm text-muted">For {user.name}. You&apos;ll be signed in afterwards.</p>
+      <h1 className="font-brand text-3xl font-extrabold tracking-[-0.03em]">Set a new password</h1>
+      <p className="mt-1 mb-6 text-sm text-muted">For {user.name}. You&apos;ll be signed in afterwards.</p>
       <ResetPasswordForm token={token as string} />
     </>
   );

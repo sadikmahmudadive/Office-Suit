@@ -27,7 +27,7 @@ export function LoginForm() {
         />
       </div>
       <FormError message={state?.error} />
-      <button className="btn btn-primary w-full py-2" disabled={pending}>
+      <button className="btn btn-primary w-full py-2.5" disabled={pending}>
         {pending ? "Signing in…" : "Sign in"}
       </button>
     </form>

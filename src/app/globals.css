@@ -64,6 +64,9 @@
   --color-warn-soft: var(--warn-soft);
   --color-ok: var(--ok);
   --color-ok-soft: var(--ok-soft);
+  --color-brand-ink: #201e1d;
+  --color-brand-paper: #f3f2f2;
+  --color-brand-red: #ec3013;
   --font-brand: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
@@ -91,6 +94,60 @@ body {
   --tw-prose-pre-bg: var(--surface-2);
   --tw-prose-th-borders: var(--border);
   --tw-prose-td-borders: var(--border);
+}
+
+/* Sign-in pages: ink brand panel with a faint square grid and a red glow. */
+.auth-panel {
+  background-color: var(--color-brand-ink);
+  background-image:
+    radial-gradient(circle at 12% 88%, rgb(236 48 19 / 0.22), transparent 42%),
+    radial-gradient(circle at 92% 8%, rgb(243 242 242 / 0.07), transparent 38%),
+    linear-gradient(rgb(243 242 242 / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(243 242 242 / 0.045) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px;
+}
+
+/* Gentle floating for illustration pieces; still for anyone who prefers less motion. */
+@keyframes art-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.art-float {
+  animation: art-float 6s ease-in-out infinite;
+}
+.art-slow {
+  animation-duration: 9s;
+}
+.art-delay-1 {
+  animation-delay: -1.5s;
+}
+.art-delay-2 {
+  animation-delay: -3s;
+}
+.art-delay-3 {
+  animation-delay: -4.5s;
+}
+
+@keyframes auth-form-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+.auth-form {
+  animation: auth-form-in 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art-float,
+  .auth-form {
+    animation: none;
+  }
 }
 
 /* Edge adds its own reveal eye to password fields; ours replaces it. */

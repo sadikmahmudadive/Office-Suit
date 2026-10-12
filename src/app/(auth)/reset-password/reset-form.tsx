@@ -36,7 +36,7 @@ export function ResetPasswordForm({ token }: { token: string }) {
         />
       </div>
       <FormError message={state?.error} />
-      <button className="btn btn-primary w-full py-2" disabled={pending}>
+      <button className="btn btn-primary w-full py-2.5" disabled={pending}>
         {pending ? "Saving…" : "Set password and sign in"}
       </button>
     </form>

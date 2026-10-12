@@ -43,7 +43,7 @@ export function RegisterForm({ needsInviteCode }: { needsInviteCode: boolean }) 
         </div>
       )}
       <FormError message={state?.error} />
-      <button className="btn btn-primary w-full py-2" disabled={pending}>
+      <button className="btn btn-primary w-full py-2.5" disabled={pending}>
         {pending ? "Creating account…" : "Create account"}
       </button>
     </form>

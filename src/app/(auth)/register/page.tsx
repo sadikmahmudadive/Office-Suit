@@ -15,14 +15,14 @@ export default async function RegisterPage() {
 
   return (
     <>
-      <h1 className="mb-1 text-lg font-semibold">Create your account</h1>
-      <p className="mb-4 text-sm text-muted">
+      <h1 className="font-brand text-3xl font-extrabold tracking-[-0.03em]">Create your account</h1>
+      <p className="mt-1 mb-6 text-sm text-muted">
         {isFirstUser
           ? "You're the first one here. This account sets up the workspace."
           : "Ask a teammate for the team invite code."}
       </p>
       <RegisterForm needsInviteCode={!isFirstUser} />
-      <p className="mt-4 text-center text-sm text-muted">
+      <p className="mt-6 text-center text-sm text-muted">
         Already have an account?{" "}
         <Link href="/login" className="font-medium text-accent hover:underline">
           Sign in
