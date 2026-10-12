@@ -1,6 +1,7 @@
 "use client";
 
 import { resetPassword } from "@/app/actions/auth";
+import { PasswordInput } from "@/components/password-input";
 import { FormError } from "@/components/ui";
 import { useFormAction } from "@/components/use-form-action";
 
@@ -13,14 +14,12 @@ export function ResetPasswordForm({ token }: { token: string }) {
         <label htmlFor="password" className="label">
           New password
         </label>
-        <input
+        <PasswordInput
           id="password"
           name="password"
-          type="password"
           autoComplete="new-password"
           minLength={8}
           required
-          className="input"
         />
         <p className="mt-1 text-xs text-muted">At least 8 characters.</p>
       </div>
@@ -28,14 +27,12 @@ export function ResetPasswordForm({ token }: { token: string }) {
         <label htmlFor="confirmPassword" className="label">
           Confirm new password
         </label>
-        <input
+        <PasswordInput
           id="confirmPassword"
           name="confirmPassword"
-          type="password"
           autoComplete="new-password"
           minLength={8}
           required
-          className="input"
         />
       </div>
       <FormError message={state?.error} />

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { changePassword, updateProfile } from "@/app/actions/auth";
+import { PasswordInput } from "./password-input";
 import { FormError } from "./ui";
 import { useFormAction } from "./use-form-action";
 
@@ -57,13 +58,11 @@ export function PasswordForm() {
           <label htmlFor="currentPassword" className="label">
             Current password
           </label>
-          <input
+          <PasswordInput
             id="currentPassword"
             name="currentPassword"
-            type="password"
             autoComplete="current-password"
             required
-            className="input"
           />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -71,28 +70,24 @@ export function PasswordForm() {
             <label htmlFor="newPassword" className="label">
               New password
             </label>
-            <input
+            <PasswordInput
               id="newPassword"
               name="newPassword"
-              type="password"
               autoComplete="new-password"
               minLength={8}
               required
-              className="input"
             />
           </div>
           <div>
             <label htmlFor="confirmPassword" className="label">
               Confirm new password
             </label>
-            <input
+            <PasswordInput
               id="confirmPassword"
               name="confirmPassword"
-              type="password"
               autoComplete="new-password"
               minLength={8}
               required
-              className="input"
             />
           </div>
         </div>

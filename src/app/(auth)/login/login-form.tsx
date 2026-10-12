@@ -1,6 +1,7 @@
 "use client";
 
 import { login } from "@/app/actions/auth";
+import { PasswordInput } from "@/components/password-input";
 import { FormError } from "@/components/ui";
 import { useFormAction } from "@/components/use-form-action";
 
@@ -18,13 +19,11 @@ export function LoginForm() {
         <label htmlFor="password" className="label">
           Password
         </label>
-        <input
+        <PasswordInput
           id="password"
           name="password"
-          type="password"
           autoComplete="current-password"
           required
-          className="input"
         />
       </div>
       <FormError message={state?.error} />

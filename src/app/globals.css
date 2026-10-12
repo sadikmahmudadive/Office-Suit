@@ -93,6 +93,12 @@ body {
   --tw-prose-td-borders: var(--border);
 }
 
+/* Edge adds its own reveal eye to password fields; ours replaces it. */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
 /* Tab loading dot: appears only if a page takes more than 150ms, so fast switches don't flicker. */
 .nav-pending {
   opacity: 0;

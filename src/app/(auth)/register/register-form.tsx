@@ -1,6 +1,7 @@
 "use client";
 
 import { register } from "@/app/actions/auth";
+import { PasswordInput } from "@/components/password-input";
 import { FormError } from "@/components/ui";
 import { useFormAction } from "@/components/use-form-action";
 
@@ -24,14 +25,12 @@ export function RegisterForm({ needsInviteCode }: { needsInviteCode: boolean }) 
         <label htmlFor="password" className="label">
           Password
         </label>
-        <input
+        <PasswordInput
           id="password"
           name="password"
-          type="password"
           autoComplete="new-password"
           minLength={8}
           required
-          className="input"
         />
         <p className="mt-1 text-xs text-muted">At least 8 characters.</p>
       </div>
